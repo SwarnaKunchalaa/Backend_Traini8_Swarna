@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/trainingcenter")
+@RequestMapping("/api/trainingcenter")
 public class TrainingCenterController {
 
     TrainingCenterService trainingCenterService;
@@ -17,6 +17,7 @@ public class TrainingCenterController {
     TrainingCenterController(TrainingCenterService trainingCenterService) {
         this.trainingCenterService = trainingCenterService;
     }
+
 
     @PostMapping()
     public TrainingCenterDto createTrainingCenter(@Valid @RequestBody TrainingCenterDto trainingCenterDto) {
