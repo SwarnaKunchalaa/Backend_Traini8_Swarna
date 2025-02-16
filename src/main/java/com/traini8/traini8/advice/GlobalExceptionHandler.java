@@ -24,9 +24,11 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<String> handleInvalidInput(IllegalArgumentException ex){
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
-        //return ResponseEntity.badRequest().body(errorDto);
+    public ResponseEntity<ErrorDto> handleInvalidInput(IllegalArgumentException ex){
+        ErrorDto errorDto = new ErrorDto();
+        errorDto.setErrorMessage(ex.getMessage());
+        errorDto.setErrorCode("400");
+        return new ResponseEntity<>(errorDto,HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

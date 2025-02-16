@@ -30,7 +30,7 @@ public class TrainingCenterService {
     public TrainingCenterDto createTrainingCenter(TrainingCenterDto trainingCenterDto) {
         TrainingCenter center = trainingCenterRepository.findByCenterCode(trainingCenterDto.getCenterCode());
         if(center!=null){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid Input");
         }
         TrainingCenter trainingCenter = new TrainingCenter();
         trainingCenter.setCenterName(trainingCenterDto.getCenterName());
