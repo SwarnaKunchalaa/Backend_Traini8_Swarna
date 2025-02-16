@@ -13,6 +13,7 @@ git clone https://github.com/SwarnaKunchalaa/Backend_Traini8_Swarna.git
 #APIS:
 1. POST - http://localhost:8082/api/trainingcenter - create new Training center
 2. GET  - http://localhost:8082/api/trainingcenter - Get list of Training centers
+   
    Request Body:
    {
     "centerName": "Traini8 Academy",
@@ -28,6 +29,7 @@ git clone https://github.com/SwarnaKunchalaa/Backend_Traini8_Swarna.git
     "contactEmail": "info@traini8.com",
     "contactPhone": "9876543210"
 }
+
   Response:
   {
     "centerCode": "A1TYUI23",
