@@ -64,6 +64,14 @@ public class TrainingCenterService {
         return trainingCenterDtos;
     }
 
+    public TrainingCenterDto findTrainingCenterByCenterCode(Long centerCode) {
+        TrainingCenter trainingCenter = trainingCenterRepository.findByCenterCode(centerCode);
+        if(trainingCenter==null){
+            throw new NullPointerException("Invalid input");
+        }
+        return convertTrainingCenterToTrainingCenterDto(trainingCenter);
+    }
+
     public TrainingCenterDto convertTrainingCenterToTrainingCenterDto(TrainingCenter trainingCenter) {
         TrainingCenterDto trainingCenterDto = new TrainingCenterDto();
         trainingCenterDto.setCenterName(trainingCenter.getCenterName());

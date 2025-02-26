@@ -45,4 +45,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorDtos, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity handleNullPointerException(NullPointerException ex){
+        ErrorDto errorDto = new ErrorDto();
+        errorDto.setErrorMessage(ex.getMessage());
+        errorDto.setErrorCode("400");
+        return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
+    }
+
 }

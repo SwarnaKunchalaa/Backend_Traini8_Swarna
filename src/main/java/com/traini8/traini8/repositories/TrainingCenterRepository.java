@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface TrainingCenterRepository extends JpaRepository<TrainingCenter, String> {
-    TrainingCenter findByCenterCode(String centerCode);
+    TrainingCenter findByCenterCode(Long centerCode);
 
 }

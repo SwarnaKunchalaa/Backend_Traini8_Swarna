@@ -28,4 +28,8 @@ public class TrainingCenterController {
     public List<TrainingCenterDto> getAllTrainingCenters() {
         return trainingCenterService.findAllTrainingCenters();
     }
+    @GetMapping("/{id}")
+    public TrainingCenterDto getTrainingCenterByCenterCode(@PathVariable("id") Long centerCode) {
+        return trainingCenterService.findTrainingCenterByCenterCode(centerCode);
+    }
 }

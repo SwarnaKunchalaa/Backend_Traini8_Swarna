@@ -13,8 +13,8 @@ import java.util.List;
 public class TrainingCenterDto {
     @Id
     @Column(length = 12)
-    @NotBlank(message="Center code is mandatory")
-    private String centerCode;
+    @NotNull(message="Center code is mandatory")
+    private Long centerCode;
 
     @Column(length = 40)
     @NotBlank(message="Center name is mandatory")
@@ -41,11 +41,11 @@ public class TrainingCenterDto {
         this.studentCapacity = studentCapacity;
     }
 
-    public String getCenterCode() {
+    public Long getCenterCode() {
         return centerCode;
     }
 
-    public void setCenterCode(String centerCode) {
+    public void setCenterCode(Long centerCode) {
         this.centerCode = centerCode;
     }
 

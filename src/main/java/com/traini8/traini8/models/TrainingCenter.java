@@ -10,7 +10,7 @@ import java.util.List;
 public class TrainingCenter{
 
     @Id
-    private String centerCode;
+    private Long centerCode;
     private String centerName;
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
@@ -30,11 +30,11 @@ public class TrainingCenter{
         this.address = address;
     }
 
-    public String getCenterCode() {
+    public Long getCenterCode() {
         return centerCode;
     }
 
-    public void setCenterCode(String centerCode) {
+    public void setCenterCode(Long centerCode) {
         this.centerCode = centerCode;
     }
 
