@@ -32,4 +32,9 @@ public class TrainingCenterController {
     public TrainingCenterDto getTrainingCenterByCenterCode(@PathVariable("id") Long centerCode) {
         return trainingCenterService.findTrainingCenterByCenterCode(centerCode);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteTrainingCenterByCenterCode(@PathVariable("id") Long centerCode) {
+        trainingCenterService.deleteTrainingCenter(centerCode);
+    }
 }
