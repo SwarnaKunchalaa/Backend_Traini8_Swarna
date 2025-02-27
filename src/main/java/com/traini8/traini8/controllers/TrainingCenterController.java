@@ -37,4 +37,9 @@ public class TrainingCenterController {
     public void deleteTrainingCenterByCenterCode(@PathVariable("id") Long centerCode) {
         trainingCenterService.deleteTrainingCenter(centerCode);
     }
+
+    @PatchMapping("/{id}")
+    public TrainingCenterDto updateTrainingCenter(@PathVariable("id") Long centerCode, @RequestBody TrainingCenterDto trainingCenterDto) {
+        return trainingCenterService.updateTrainingCenter(centerCode, trainingCenterDto);
+    }
 }

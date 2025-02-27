@@ -80,6 +80,35 @@ public class TrainingCenterService {
         trainingCenterRepository.delete(trainingCenter);
     }
 
+    public TrainingCenterDto updateTrainingCenter(Long centerCode,TrainingCenterDto trainingCenterDto) {
+        TrainingCenter trainingCenter = trainingCenterRepository.findByCenterCode(centerCode);
+        if(trainingCenter==null){
+            throw new NullPointerException("Invalid input");
+        }
+        if(trainingCenterDto.getCenterName()!=null)
+            trainingCenter.setCenterName(trainingCenterDto.getCenterName());
+        if(trainingCenterDto.getContactEmail()!=null)
+            trainingCenter.setContactEmail(trainingCenterDto.getContactEmail());
+        if(trainingCenterDto.getContactPhone()!=null)
+            trainingCenter.setContactPhone(trainingCenterDto.getContactPhone());
+        Address address = null;
+        if(trainingCenterDto.getAddress()!=null) {
+            address = trainingCenter.getAddress();
+            if (trainingCenterDto.getAddress().getDetailedAddress() != null)
+                address.setDetailedAddress(trainingCenterDto.getAddress().getDetailedAddress());
+            if (address.getCity() != null)
+                address.setCity(trainingCenterDto.getAddress().getCity());
+            if (address.getState() != null)
+                address.setState(trainingCenterDto.getAddress().getState());
+            if (address.getPincode() != null)
+                address.setPincode(trainingCenterDto.getAddress().getPincode());
+            trainingCenter.setAddress(address);
+        }
+        trainingCenterRepository.save(trainingCenter);
+        return convertTrainingCenterToTrainingCenterDto(trainingCenter);
+    }
+
+
     public TrainingCenterDto convertTrainingCenterToTrainingCenterDto(TrainingCenter trainingCenter) {
         TrainingCenterDto trainingCenterDto = new TrainingCenterDto();
         trainingCenterDto.setCenterName(trainingCenter.getCenterName());
